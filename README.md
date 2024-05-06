@@ -1,9 +1,75 @@
-# RPC
+# Remote Procedure Call (RPC)
 
-サーバは、以下の関数を RPC としてクライアントに提供します。
+RPC is an API architecture that allows a function or procedure to be executed on a remote machine within a network. It's commonly used when tasks need to be distributed across multiple machines or when making requests more efficiently.
 
-- floor(double x): 10 進数 x を最も近い整数に切り捨て、その結果を整数で返す。
-- nroot(int n, int x): 方程式 rn = x における、r の値を計算する。
-- reverse(string s): 文字列 s を入力として受け取り、入力文字列の逆である新しい文字列を返す。
-- validAnagram(string str1, string str2): 2 つの文字列を入力として受け取り，2 つの入力文字列が互いにアナグラムであるかどうかを示すブール値を返す。
-- sort(string[] strArr): 文字列の配列を入力として受け取り、その配列をソートして、ソート後の文字列の配列を返す。
+### Reasons for Using Remote Machines
+
+Some of the reasons to use remote machines include:
+
+- **Accessing a company's confidential database** for security reasons.
+- **Performing computationally intensive functions** that require more resources.
+
+RPC ensures that the client and server can operate on different computers and can be written in different programming languages. This time, the implementation was carried out in the following programming languages:
+
+| Client-Server | Programming Language |
+|---------------|----------------------|
+| Client        | JavaScript (Node.js) |
+| Server        | Python               |
+
+### Demo
+
+![RPC Demo Output](https://github.com/tkwonn/socket/assets/66197642/8730c610-c884-4627-b710-834864d37134)
+
+### Server Functions
+
+The server provides the following functions as RPC to the client:
+
+- `floor`: Returns the nearest integer by rounding down.
+  - **Params**: `double x`
+  - **Return**: `int`
+
+- `nroot`: Computes the value of `r` in the equation `x = r^n`.
+  - **Params**: `int n, int x`
+  - **Return**: `int`
+
+- `reverse`: Returns a new string that is the reverse of the input string.
+  - **Params**: `string s`
+  - **Return**: `string`
+
+- `isAnagram`: Checks if two strings are anagrams of each other.
+  - **Params**: `string s1, string s2`
+  - **Return**: `bool`
+
+### Request and Response Format
+
+```json
+// Request
+{
+    "id": 1,
+    "method": "nroot",
+    "params": [3, 8]
+}
+
+// Response
+{
+    "id": 1,
+    "results": "2",
+    "result_type": "int"
+}
+```
+
+## Implementation
+
+- On the server side, a hash map of <string, callable> pairs is created to store the keys and values.
+- When a request arrives at the server, it refers to this table to find the function associated with the specified key, and passes the parameters received from the request to the function.
+- Parameter validation is performed before executing the function to ensure parameters are sent in the correct format and data type.
+- Multiple clients are supported using Python's threading and multiprocessing modules, assigning a unique ID to each request (process) to track which request comes from which client.
+
+If an error occurs, the server returns a response to the client containing an error message like the following:
+
+```json
+{
+    "id": 1,
+    "error": "Invalid parameter"
+}
+```
