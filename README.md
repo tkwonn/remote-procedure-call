@@ -2,13 +2,6 @@
 
 RPC is an API architecture that allows a function or procedure to be executed on a remote machine within a network. It's commonly used when tasks need to be distributed across multiple machines or when making requests more efficiently.
 
-### Reasons for Using Remote Machines
-
-Some of the reasons to use remote machines include:
-
-- **Accessing a company's confidential database** for security reasons.
-- **Performing computationally intensive functions** that require more resources.
-
 RPC ensures that the client and server can operate on different computers and can be written in different programming languages. This time, the implementation was carried out in the following programming languages:
 
 | Client-Server | Programming Language |
