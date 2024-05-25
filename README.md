@@ -1,9 +1,5 @@
 # Remote Procedure Call (RPC)
 
-RPC is an API architecture that allows a function or procedure to be executed on a remote machine within a network. It's commonly used when tasks need to be distributed across multiple machines or when making requests more efficiently.
-
-RPC ensures that the client and server can operate on different computers and can be written in different programming languages. This time, the implementation was carried out in the following programming languages:
-
 | Client-Server | Programming Language |
 |---------------|----------------------|
 | Client        | JavaScript (Node.js) |
