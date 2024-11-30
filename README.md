@@ -1,26 +1,22 @@
-# Remote Procedure Call (RPC)
+# Remote Procedure Call
 
 RPC is an API architecture that allows a function or procedure to be executed on a remote machine within a network. It's commonly used when tasks need to be distributed across multiple machines or when making requests more efficiently.
 
-### Reasons for Using Remote Machines
+## Built with
 
-Some of the reasons to use remote machines include:
-
-- **Accessing a company's confidential database** for security reasons.
-- **Performing computationally intensive functions** that require more resources.
-
-RPC ensures that the client and server can operate on different computers and can be written in different programming languages. This time, the implementation was carried out in the following programming languages:
+Client and server can operate on different computers and can be written in different programming languages.   
+The implementation was carried out in the following programming languages:
 
 | Client-Server | Programming Language |
 |---------------|----------------------|
 | Client        | JavaScript (Node.js) |
 | Server        | Python               |
 
-### Demo
+## Demo
 
-![RPC Demo Output](https://github.com/tkwonn/socket/assets/66197642/8730c610-c884-4627-b710-834864d37134)
+[![asciicast](https://asciinema.org/a/aLeoZMRZnYnCtww7N5QURIyj8.svg)](https://asciinema.org/a/aLeoZMRZnYnCtww7N5QURIyj8)
 
-### Server Functions
+## Server Functions
 
 The server provides the following functions as RPC to the client:
 
@@ -39,24 +35,6 @@ The server provides the following functions as RPC to the client:
 - `isAnagram`: Checks if two strings are anagrams of each other.
   - **Params**: `string s1, string s2`
   - **Return**: `bool`
-
-### Request and Response Format
-
-```json
-// Request
-{
-    "id": 1,
-    "method": "nroot",
-    "params": [3, 8]
-}
-
-// Response
-{
-    "id": 1,
-    "results": "2",
-    "result_type": "int"
-}
-```
 
 ## Implementation
 

@@ -1,10 +1,8 @@
 #!/usr/bin/env node
 
-const net = require('node:net');
-
 class Client {
     constructor(socketPath) {
-        this.client = net.createConnection(socketPath);
+        this.client = require('node:net').createConnection(socketPath);
         this.client.on('data', this.handleData.bind(this));
         this.client.on('end', this.handleEnd.bind(this));
         this.client.on('error', this.handleError.bind(this));
