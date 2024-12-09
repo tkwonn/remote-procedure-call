@@ -14,7 +14,7 @@ The implementation was carried out in the following programming languages:
 
 ## Demo
 
-[![asciicast](https://asciinema.org/a/aLeoZMRZnYnCtww7N5QURIyj8.svg)](https://asciinema.org/a/aLeoZMRZnYnCtww7N5QURIyj8)
+[![asciicast](https://asciinema.org/a/P71AG0MTjQ3LIj7oJfv55jJvq.svg)](https://asciinema.org/a/P71AG0MTjQ3LIj7oJfv55jJvq)
 
 ## Server Functions
 
